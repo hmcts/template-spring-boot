@@ -1,0 +1,8 @@
+java:
+  applicationPort: {{ cookiecutter.http_port }}
+  image: 'hmctspublic.azurecr.io/rpe/spring-boot-template:latest'
+{% raw %}
+  ingressHost: rpe-spring-boot-template-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+{% endraw %}
+  aadIdentityName: rpe
+  environment:

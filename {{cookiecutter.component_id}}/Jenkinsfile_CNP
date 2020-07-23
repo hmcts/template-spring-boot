@@ -1,0 +1,11 @@
+#!groovy
+
+@Library("Infrastructure")
+
+def type = "java"
+def product = "{{ cookiecutter.product }}"
+def component = "{{ cookiecutter.component_id }}"
+
+withPipeline(type, product, component) {
+    disableLegacyDeployment()
+}
