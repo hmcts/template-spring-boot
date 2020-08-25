@@ -5,8 +5,8 @@ metadata:
   title: Spring Boot Service
   description: Standard Spring Boot (Java) microservice with recommended configuration for HMCTS
   tags:
-    - Recommended
-    - Java
+    - recommended
+    - java
 spec:
   owner: Platform Engineering (#rpe)
   templater: cookiecutter
