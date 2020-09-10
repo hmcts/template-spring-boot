@@ -8,9 +8,8 @@ properties([
 @Library("Infrastructure")
 
 def type = "java"
-def product = "rpe"
-def component = "spring-boot-template"
+def product = "{{ cookiecutter.product }}"
+def component = "{{ cookiecutter.component_id }}"
 
 withNightlyPipeline(type, product, component) {
-  enableSlackNotifications('#rpe-build-notices')
 }
