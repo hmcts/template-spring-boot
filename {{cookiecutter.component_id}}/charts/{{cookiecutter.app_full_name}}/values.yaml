@@ -1,8 +1,6 @@
 java:
   applicationPort: {{ cookiecutter.http_port }}
-  image: 'hmctspublic.azurecr.io/rpe/spring-boot-template:latest'
-{% raw %}
-  ingressHost: rpe-spring-boot-template-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
-{% endraw %}
-  aadIdentityName: rpe
+  image: 'hmctspublic.azurecr.io/{{ cookiecutter.product }}/{{ cookiecutter.component_id }}:latest'
+  ingressHost: {{ cookiecutter.app_full_name }}-{{ '{{' }} .Values.global.environment {{ '}}' }}.service.core-compute-{{ '{{' }} .Values.global.environment {{ '}}' }}.internal
+  aadIdentityName: {{ cookiecutter.product }}
   environment:

@@ -1,0 +1,3 @@
+default_context:
+  product: "rpe"
+  component_id: "spring-boot-template"
