@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: 11
       - run: sudo apt-get install cookiecutter
-      - run: cookiecutter ../template-spring-boot/ --no-input --config-file ../template-expressjs/cookiecutter-ci.yaml
+      - run: cookiecutter ../template-spring-boot/ --no-input --config-file ../template-spring-boot/cookiecutter-ci.yaml
       - name: Build
         working-directory: ./spring-boot-template
         run: ./gradlew check
