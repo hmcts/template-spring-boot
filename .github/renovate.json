@@ -1,6 +1,7 @@
 {
   "enabledManagers": ["helm-requirements","gradle-wrapper"],
   "automerge": true,
+  "labels": ["dependencies"],
   "helm-requirements":
   {
     "fileMatch": ["\\Chart.yaml$"],
