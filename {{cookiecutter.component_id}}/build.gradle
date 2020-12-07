@@ -108,12 +108,12 @@ jacocoTestReport {
   }
 }
 
-project.tasks['sonarqube'].dependsOn jacocoTestReport
+project.tasks['sonarqube'].dependsOn test, integration, jacocoTestReport
 
 sonarqube {
   properties {
-    property "sonar.projectName", "Reform :: spring-boot-template"
-    property "sonar.projectKey", "uk.gov.hmcts.reform:spring-boot-template"
+    property "sonar.projectName", "Reform :: {{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
+    property "sonar.projectKey", "uk.gov.hmcts.reform:{{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
 }
@@ -193,7 +193,7 @@ dependencies {
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.13.3'
 
-  implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.38'
+  implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.40'
   implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-websocket', version: '9.0.40'
 
   testImplementation libraries.junit5
@@ -210,7 +210,7 @@ dependencies {
   smokeTestImplementation sourceSets.main.runtimeClasspath
 }
 
-mainClassName = 'uk.gov.hmcts.reform.demo.Application'
+mainClassName = 'uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.Application'
 
 bootJar {
   getArchiveFileName().set(provider {
