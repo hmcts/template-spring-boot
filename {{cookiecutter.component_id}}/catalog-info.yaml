@@ -3,6 +3,12 @@ kind: Component
 metadata:
   name: "{{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
   description: {{ cookiecutter.description }}
+  annotations:
+    jenkins.io/github-folder: 'HMCTS_{{ cookiecutter.product }}/{{ cookiecutter.storePath }}'
+    github.com/project-slug: '{{ cookiecutter.storePath }}'
+  tags:
+    - Java
+    - {{ cookiecutter.product }}
 spec:
   type: service
   lifecycle: experimental
