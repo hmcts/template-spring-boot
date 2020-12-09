@@ -8,7 +8,7 @@ metadata:
     jenkins.io/github-folder: 'HMCTS_{{ cookiecutter.product }}/{{ cookiecutter.product }}-{{ cookiecutter.component_id }}'
     github.com/project-slug: '{{ cookiecutter.storePath }}'
   tags:
-    - Java
+    - java
     - {{ cookiecutter.product }}
 spec:
   type: service
