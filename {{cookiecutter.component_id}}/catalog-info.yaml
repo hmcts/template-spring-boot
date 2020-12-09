@@ -4,7 +4,8 @@ metadata:
   name: "{{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
   description: {{ cookiecutter.description }}
   annotations:
-    jenkins.io/github-folder: 'HMCTS_{{ cookiecutter.product }}/{{ cookiecutter.storePath }}'
+    # This must match folder-name/job-name in Jenkins.
+    jenkins.io/github-folder: 'HMCTS_{{ cookiecutter.product }}/{{ cookiecutter.product }}-{{ cookiecutter.component_id }}'
     github.com/project-slug: '{{ cookiecutter.storePath }}'
   tags:
     - Java
