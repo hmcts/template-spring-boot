@@ -5,6 +5,7 @@
   "app_full_name": "{{ cookiecutter.product }}-{{ cookiecutter.component_id }}",
   "description": "Product description for {{ cookiecutter.app_full_name }}",
   "owner": "",
-  "http_port": 8080
+  "http_port": 8080,
+  "storePath": ""
 }
 
