@@ -10,7 +10,7 @@ plugins {
   id 'org.sonarqube' version '3.0'
 }
 
-group = 'uk.gov.hmcts.reform'
+group = 'com.github.hmcts'
 version = '0.0.1'
 
 allprojects {
@@ -113,7 +113,7 @@ project.tasks['sonarqube'].dependsOn test, integration, jacocoTestReport
 sonarqube {
   properties {
     property "sonar.projectName", "Reform :: {{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
-    property "sonar.projectKey", "uk.gov.hmcts.reform:{{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
+    property "sonar.projectKey", "com.github.hmcts:{{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
 }
@@ -156,13 +156,14 @@ dependencyManagement {
 repositories {
   mavenLocal()
   mavenCentral()
+  maven { url 'https://jitpack.io' }
   jcenter()
 }
 
 def versions = [
   junit           : '5.7.0',
   junitPlatform   : '1.7.0',
-  reformLogging   : '5.1.5',
+  reformLogging   : '5.1.7',
   springBoot      : springBoot.class.package.implementationVersion,
   springfoxSwagger: '2.9.2'
 ]
@@ -185,10 +186,10 @@ dependencies {
 
   implementation group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
 
-  implementation group: 'uk.gov.hmcts.reform', name: 'logging', version: versions.reformLogging
-  implementation group: 'uk.gov.hmcts.reform', name: 'logging-appinsights', version: versions.reformLogging
+  implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: versions.reformLogging
+  implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: versions.reformLogging
   implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.6.RELEASE'
-  implementation group: 'uk.gov.hmcts.reform', name: 'properties-volume-spring-boot-starter', version: '0.1.0'
+  implementation group: 'com.github.hmcts', name: 'properties-volume-spring-boot-starter', version: '0.1.0'
 
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.0'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.14.0'
@@ -210,7 +211,7 @@ dependencies {
   smokeTestImplementation sourceSets.main.runtimeClasspath
 }
 
-mainClassName = 'uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.Application'
+mainClassName = 'com.github.hmcts.{{cookiecutter.java_package_name}}.Application'
 
 bootJar {
   getArchiveFileName().set(provider {
