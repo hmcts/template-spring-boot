@@ -211,7 +211,7 @@ dependencies {
   smokeTestImplementation sourceSets.main.runtimeClasspath
 }
 
-mainClassName = 'com.github.hmcts.{{cookiecutter.java_package_name}}.Application'
+mainClassName = 'uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.Application'
 
 bootJar {
   getArchiveFileName().set(provider {
