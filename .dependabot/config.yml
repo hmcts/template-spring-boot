@@ -1,5 +1,0 @@
-version: 1
-update_configs:
-  - package_manager: "java:gradle"
-    directory: "/{{cookiecutter.component_id}}"
-    update_schedule: "daily"
