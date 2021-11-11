@@ -6,6 +6,7 @@ plugins {
   id 'org.owasp.dependencycheck' version '6.2.2'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
   id 'org.springframework.boot' version '2.5.6'
+  id 'org.owasp.dependencycheck' version '6.5.0.1'
   id 'com.github.ben-manes.versions' version '0.36.0'
   id 'org.sonarqube' version '3.3'
 }
@@ -145,9 +146,9 @@ dependencyCheck {
 
 dependencyManagement {
   dependencies {
-    dependency group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.67'
+    dependency group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.69'
     // CVE-2018-10237 - Unbounded memory allocation
-    dependencySet(group: 'com.google.guava', version: '30.0-jre') {
+    dependencySet(group: 'com.google.guava', version: '31.0.1-jre') {
       entry 'guava'
     }
   }
@@ -162,7 +163,7 @@ repositories {
 
 def versions = [
   junit           : '5.7.1',
-  junitPlatform   : '1.7.0',
+  junitPlatform   : '1.8.1',
   reformLogging   : '5.1.7',
   springBoot      : springBoot.class.package.implementationVersion,
   springfoxSwagger: '2.9.2'
@@ -189,12 +190,12 @@ dependencies {
   implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: versions.reformLogging
   implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: versions.reformLogging
   implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.6.RELEASE'
-  implementation group: 'com.github.hmcts', name: 'properties-volume-spring-boot-starter', version: '0.1.0'
+  implementation group: 'com.github.hmcts', name: 'properties-volume-spring-boot-starter', version: '0.1.1'
 
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.0'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.14.0'
 
-  implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '10.0.8'
+  implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '10.0.12'
   implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-websocket', version: '10.0.8'
 
 
