@@ -1,6 +1,7 @@
 {
   "product": "",
   "component_id": "",
+  "owner": "",
   "java_package_name": "{{ cookiecutter.component_id|replace('-', '') }}",
   "app_full_name": "{{ cookiecutter.product }}-{{ cookiecutter.component_id }}",
   "description": "Product description for {{ cookiecutter.app_full_name }}",
