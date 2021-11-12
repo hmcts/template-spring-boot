@@ -214,7 +214,7 @@ mainClassName = 'uk.gov.hmcts.reform.demo.Application'
 
 bootJar {
   getArchiveFileName().set(provider {
-    '{{ cookiecutter.product }}-{{ cookiecutter.component_id }}.jar'
+    '${{ values.product }}-${{ values.component_id }}.jar'
   })
 
   manifest {

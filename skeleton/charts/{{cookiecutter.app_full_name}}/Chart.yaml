@@ -1,11 +1,11 @@
 apiVersion: v2
 appVersion: "1.0"
-description: A Helm chart for {{ cookiecutter.product }}-{{ cookiecutter.component_id }} App
-name: {{ cookiecutter.product }}-{{ cookiecutter.component_id }}
-home: https://github.com/hmcts/{{ cookiecutter.product }}-{{ cookiecutter.component_id }}
+description: A Helm chart for ${{ values.product }}-${{ values.component_id }} App
+name: ${{ values.product }}-${{ values.component_id }}
+home: https://github.com/hmcts/${{ values.product }}-${{ values.component_id }}
 version: 0.0.1
 maintainers:
-  - name: HMCTS {{ cookiecutter.product }} team
+  - name: HMCTS ${{ values.product }} team
 dependencies:
   - name: java
     version: 3.0.2

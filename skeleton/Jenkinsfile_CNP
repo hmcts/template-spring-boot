@@ -3,8 +3,8 @@
 @Library("Infrastructure")
 
 def type = "java"
-def product = "{{ cookiecutter.product }}"
-def component = "{{ cookiecutter.component_id }}"
+def product = "${{ values.product }}"
+def component = "${{ values.component_id }}"
 
 withPipeline(type, product, component) {
     disableLegacyDeployment()

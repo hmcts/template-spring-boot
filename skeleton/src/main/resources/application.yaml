@@ -1,5 +1,5 @@
 server:
-  port: {{ cookiecutter.http_port }}
+  port: ${{ values.http_port }}
 
 management:
   endpoint:
@@ -14,7 +14,7 @@ management:
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
   application:
-    name: {{ cookiecutter.component_id }}
+    name: ${{ values.component_id }}
 #  datasource:
 #    driver-class-name: org.postgresql.Driver
 #    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}

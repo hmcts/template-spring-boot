@@ -1,4 +1,4 @@
-# {{ cookiecutter.component_id }}
+# ${{ values.component_id }}
 
 
 The application exposes health endpoints (http://localhost:4550/health) and metrics endpoint

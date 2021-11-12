@@ -1,13 +1,13 @@
 version: '2.1'
 
 services:
-  {{ cookiecutter.component_id }}:
+  ${{ values.component_id }}:
     build:
       context: .
       args:
         - http_proxy
         - https_proxy
         - no_proxy
-    image: hmctspublic.azurecr.io/{{ cookiecutter.product }}/{{ cookiecutter.component_id }}
+    image: hmctspublic.azurecr.io/${{ values.product }}/${{ values.component_id }}
     ports:
       - $SERVER_PORT:$SERVER_PORT
