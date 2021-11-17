@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.controllers;
+package uk.gov.hmcts.reform.${{ values.java_package_name }}.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

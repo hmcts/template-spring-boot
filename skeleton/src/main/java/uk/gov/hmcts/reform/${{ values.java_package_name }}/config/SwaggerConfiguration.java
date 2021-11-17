@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.config;
+package uk.gov.hmcts.reform.${{ values.java_package_name }}.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.Application;
+import uk.gov.hmcts.reform.${{ values.java_package_name }}.Application;
 
 @Configuration
 @EnableSwagger2

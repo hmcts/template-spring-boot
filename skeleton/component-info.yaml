@@ -1,8 +1,16 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: "${{ values.product }}-${{ values.component_id }}"
+  name: "${{ values.product }}-${{ values.component }}"
   description: ${{ values.description }}
+  annotations:
+    # This must match folder-name/job-name in Jenkins.
+    jenkins.io/job-full-name: cft:HMCTS_${{ values.product }}/${{ values.destination.repo }}
+    github.com/project-slug: '${{ values.destination.owner }}/${{ values.destination.repo }}'
+  links:
+    - url: https://hmcts-reform.slack.com/app_redirect?channel=${{ values.slack_contact_channel }}
+      title: ${{ values.slack_contact_channel }} on Slack
+      icon: chat
 spec:
   type: service
   lifecycle: experimental

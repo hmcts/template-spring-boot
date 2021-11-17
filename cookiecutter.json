@@ -3,7 +3,7 @@
   "component_id": "",
   "java_package_name": "{{ cookiecutter.component_id|replace('-', '') }}",
   "app_full_name": "{{ cookiecutter.product }}-{{ cookiecutter.component_id }}",
-  "description": "We promise to update this description /{{cookiecutter.owner}}",
+  "description": "We promise to update this description /${{ values.owner}}",
   "http_port": 8080
 }
 

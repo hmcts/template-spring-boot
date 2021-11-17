@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.config;
+package uk.gov.hmcts.reform.${{ values.java_package_name }}.config;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
