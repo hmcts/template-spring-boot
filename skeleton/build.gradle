@@ -112,8 +112,8 @@ project.tasks['sonarqube'].dependsOn test, integration, jacocoTestReport
 
 sonarqube {
   properties {
-    property "sonar.projectName", "Reform :: {{ cookiecutter.product }}-{{ cookiecutter.component }}"
-    property "sonar.projectKey", "com.github.hmcts:{{ cookiecutter.product }}-{{ cookiecutter.component }}"
+    property "sonar.projectName", "HMCTS :: ${{ values.product }}-${{ values.component }}"
+    property "sonar.projectKey", "com.github.hmcts:${{ values.product }}-${{ values.component }}"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
 }
@@ -204,7 +204,7 @@ dependencies {
   smokeTestImplementation sourceSets.main.runtimeClasspath
 }
 
-mainClassName = 'uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.Application'
+mainClassName = 'uk.gov.hmcts.reform.${{ values.java_package_name }}.Application'
 
 bootJar {
   getArchiveFileName().set(provider {

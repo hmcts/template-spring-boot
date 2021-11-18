@@ -1,12 +1,12 @@
-# ${{ values.component }}
+# ${{ values.product }}-${{ values.component }}
 
 
-The application exposes health endpoints (http://localhost:4550/health) and metrics endpoint
-(http://localhost:4550/metrics).
+The application exposes health endpoints (http://localhost:${{ values.http_port }}/health) and metrics endpoint
+(http://localhost:${{ values.http_port }}/metrics).
 
 ## Notes
 
-JUnit 5 is now enabled by default in the project. Please refrain from using JUnit4 and use the next generation
+JUnit 5 is enabled by default in the project. Please refrain from using JUnit4 and use the next generation
 
 ## Building and deploying the application
 
