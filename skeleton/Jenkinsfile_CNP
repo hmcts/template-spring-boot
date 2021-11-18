@@ -4,7 +4,7 @@
 
 def type = "java"
 def product = "${{ values.product }}"
-def component = "${{ values.component_id }}"
+def component = "${{ values.component }}"
 
 // docs:
 // 1. https://github.com/hmcts/cnp-jenkins-library

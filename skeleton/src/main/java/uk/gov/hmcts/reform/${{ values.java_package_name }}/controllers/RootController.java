@@ -23,6 +23,6 @@ public class RootController {
      */
     @GetMapping("/")
     public ResponseEntity<String> welcome() {
-        return ok("Welcome to ${{ values.product }}-${{ values.component_id }}");
+        return ok("Welcome to ${{ values.product }}-${{ values.component }}");
     }
 }

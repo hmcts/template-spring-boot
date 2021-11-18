@@ -9,7 +9,7 @@ properties([
 
 def type = "java"
 def product = "${{ values.product }}"
-def component = "${{ values.component_id }}"
+def component = "${{ values.component }}"
 
 // docs: https://github.com/hmcts/cnp-jenkins-library#nightly-pipeline
 withNightlyPipeline(type, product, component) {}

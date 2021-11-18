@@ -14,7 +14,7 @@ management:
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
   application:
-    name: ${{ values.component_id }}
+    name: ${{ values.component }}
 #  datasource:
 #    driver-class-name: org.postgresql.Driver
 #    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}

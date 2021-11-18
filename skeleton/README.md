@@ -1,4 +1,4 @@
-# ${{ values.component_id }}
+# ${{ values.component }}
 
 
 The application exposes health endpoints (http://localhost:4550/health) and metrics endpoint

@@ -1,36 +1,98 @@
-apiVersion: backstage.io/v1alpha1
+apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: springboot-template
   title: Spring Boot Service
   description: Standard Spring Boot (Java) microservice with recommended configuration for HMCTS
   tags:
-    - recommended
     - java
 spec:
-  owner: Platform Engineering (#rpe)
-  templater: cookiecutter
+  owner: dts_platform_operations
   type: service
-  schema:
-    required:
-      - product
-      - component_id
-      - description
-    properties:
-      product:
-        title: Product
-        type: string
-        description: Product this component belongs to, normally the team name, e.g. cmc
-      component_id:
-        title: Component name
-        type: string
-        description: Name of the component, e.g. backend
-      description:
-        title: Description
-        type: string
-        description: Description of the component
-      http_port:
-        title: Port
-        type: integer
-        default: 8080
-        description: The port to run the app on
+  parameters:
+    - title: Provide some simple information
+      required:
+        - product
+        - component
+        - owner
+        - slack_contact_channel
+      properties:
+        product:
+          title: Product
+          type: string
+          description: Product this component belongs to, normally the team name, e.g. cmc
+        component:
+          title: Product
+          type: string
+          description: Name of the component, e.g. backend
+        slack_contact_channel:
+          title: Slack contact channel
+          type: string
+          description: Which channel (or user) to contact if there's any issues with this service.
+        description:
+          title: Description
+          type: string
+          description: Description of the application, a sensible default will be used if not specified.
+        http_port:
+          title: Description
+          type: integer
+          description: The port to run the app on.
+        github_admin_team:
+          title: GitHub admin team
+          type: string
+          description: Which GitHub team should have admin permissions?
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  steps:
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          product: '${{ parameters.product }}'
+          component: '${{ parameters.component }}'
+          description: '${{ parameters.description }}'
+          http_port: '${{ parameters.http_port }}'
+          owner: '${{ parameters.owner }}'
+          destination: '${{ parameters.repoUrl | parseRepoUrl }}'
+          slack_contact_channel: ${{ parameters.slack_contact_channel }}
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ['github.com']
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+        access: ${{ parameters.github_admin_team }}
+        requireCodeOwnerReviews: true
+        repoVisibility: public
+        topics:
+          - ${{ parameters.product }}
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: '${{ steps.publish.output.repoContentsUrl }}'
+        catalogInfoPath: '/catalog-info.yaml'
+  output:
+    remoteUrl: '${{ steps.publish.output.remoteUrl }}'
+    entityRef: '${{ steps.register.output.entityRef }}'

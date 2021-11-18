@@ -112,8 +112,8 @@ project.tasks['sonarqube'].dependsOn test, integration, jacocoTestReport
 
 sonarqube {
   properties {
-    property "sonar.projectName", "Reform :: {{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
-    property "sonar.projectKey", "com.github.hmcts:{{ cookiecutter.product }}-{{ cookiecutter.component_id }}"
+    property "sonar.projectName", "Reform :: {{ cookiecutter.product }}-{{ cookiecutter.component }}"
+    property "sonar.projectKey", "com.github.hmcts:{{ cookiecutter.product }}-{{ cookiecutter.component }}"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
 }
@@ -208,7 +208,7 @@ mainClassName = 'uk.gov.hmcts.reform.{{cookiecutter.java_package_name}}.Applicat
 
 bootJar {
   getArchiveFileName().set(provider {
-    '${{ values.product }}-${{ values.component_id }}.jar'
+    '${{ values.product }}-${{ values.component }}.jar'
   })
 
   manifest {
