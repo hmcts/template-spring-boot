@@ -22,7 +22,7 @@ spec:
           type: string
           description: Product this component belongs to, normally the team name, e.g. cmc
         component:
-          title: Product
+          title: Component
           type: string
           description: Name of the component, e.g. backend
         slack_contact_channel:
@@ -34,13 +34,13 @@ spec:
           type: string
           description: Description of the application, a sensible default will be used if not specified.
         http_port:
-          title: Description
+          title: HTTP port
           type: integer
           description: The port to run the app on.
         github_admin_team:
           title: GitHub admin team
           type: string
-          description: Which GitHub team should have admin permissions?
+          description: Which GitHub team should have admin permissions, use the format hmcts/<team-id>?
         owner:
           title: Owner
           type: string
