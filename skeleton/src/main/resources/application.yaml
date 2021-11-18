@@ -9,12 +9,12 @@ management:
     web:
       base-path: /
       exposure:
-        include: health, info, prometheus
+        include: health, info
 
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
   application:
-    name: ${{ values.component }}
+    name: ${{ values.product }}-${{ values.component }}
 #  datasource:
 #    driver-class-name: org.postgresql.Driver
 #    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}

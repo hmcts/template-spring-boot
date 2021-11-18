@@ -1,9 +1,10 @@
-package uk.gov.hmcts.reform.${{ values.java_package_name }};
+package uk.gov.hmcts.${{ values.product}}.${{ values.component | replace("-", "") }};
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// TODO Delete this when you create your first test
 public class DemoUnitTest {
 
     @Test

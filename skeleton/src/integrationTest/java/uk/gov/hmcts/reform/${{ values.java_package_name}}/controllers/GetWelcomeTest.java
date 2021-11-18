@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.${{ values.java_package_name }}.controllers;
+package uk.gov.hmcts.${{ values.product}}.${{ values.component | replace("-", "") }}.controllers;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

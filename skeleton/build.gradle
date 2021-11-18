@@ -204,7 +204,7 @@ dependencies {
   smokeTestImplementation sourceSets.main.runtimeClasspath
 }
 
-mainClassName = 'uk.gov.hmcts.reform.${{ values.java_package_name }}.Application'
+mainClassName = 'uk.gov.hmcts.${{ values.product}}.${{ values.component | replace("-", "") }}.Application'
 
 bootJar {
   getArchiveFileName().set(provider {

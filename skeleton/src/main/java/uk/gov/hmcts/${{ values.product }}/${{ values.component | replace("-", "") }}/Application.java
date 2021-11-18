@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.${{ values.java_package_name }};
+package uk.gov.hmcts.${{ values.product}}.${{ values.component | replace("-", "") }};
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
