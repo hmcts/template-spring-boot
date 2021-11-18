@@ -8,8 +8,8 @@ properties([
 @Library("Infrastructure")
 
 def type = "java"
-def product = "template"
-def component = "spring-boot"
+def product = "${{ values.product }}"
+def component = "${{ values.component }}"
 
-withNightlyPipeline(type, product, component) {
-}
+// docs: https://github.com/hmcts/cnp-jenkins-library#nightly-pipeline
+withNightlyPipeline(type, product, component) {}

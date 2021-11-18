@@ -17,8 +17,5 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - run: sudo snap install cookiecutter --edge
-      - run: cookiecutter ../template-spring-boot/ --no-input --config-file ../template-spring-boot/cookiecutter-ci.yaml
-      - name: Build
-        working-directory: ./spring-boot-template
-        run: ./gradlew check
+      # TODO we need some sort of CI here
+      # see https://github.com/backstage/backstage/issues/6568
