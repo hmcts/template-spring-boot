@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: springboot-template2
+  name: springboot-template
   title: Spring Boot Service
   description: Standard Spring Boot (Java) microservice with recommended configuration for HMCTS
   tags:
