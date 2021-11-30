@@ -81,11 +81,11 @@ spec:
       input:
         allowedHosts: ['github.com']
         repoUrl: ${{ parameters.repoUrl }}
-        #access: ${{ parameters.github_admin_team }}
-        #requireCodeOwnerReviews: true
+        access: ${{ parameters.github_admin_team }}
+        requireCodeOwnerReviews: true
         repoVisibility: public
-        #topics:
-        #  - ${{ parameters.product }}
+        topics:
+          - ${{ parameters.product }}
     - id: register
       name: Register
       action: catalog:register
