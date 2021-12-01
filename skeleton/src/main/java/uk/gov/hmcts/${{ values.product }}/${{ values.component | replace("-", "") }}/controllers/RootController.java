@@ -14,6 +14,6 @@ public class RootController {
 
     @GetMapping("/")
     public ResponseEntity<String> welcome() {
-        return ok("This is the ${{ values.product }}-${{ values.component }} application");
+        return ok("Welcome to ${{ values.product }}-${{ values.component }} application");
     }
 }
