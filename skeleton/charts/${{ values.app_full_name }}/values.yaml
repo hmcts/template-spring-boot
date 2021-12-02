@@ -1,6 +1,6 @@
 java:
   applicationPort: ${{ values.http_port }}
   image: 'hmctspublic.azurecr.io/${{ values.product }}/${{ values.component }}:latest'
-  ingressHost: ${{ values.app_full_name }}-{{ '{{' }} .Values.global.environment {{ '}}' }}.service.core-compute-{{ '{{' }} .Values.global.environment {{ '}}' }}.internal
+  ingressHost: ${{ values.app_full_name }}-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
   aadIdentityName: ${{ values.product }}
   environment:
