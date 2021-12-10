@@ -159,38 +159,25 @@ repositories {
   maven { url 'https://jitpack.io' }
 }
 
-def versions = [
-  junitPlatform   : '1.7.1',
-  junit           : '5.7.1',
-  junitPlatform   : '1.8.2',
-  reformLogging   : '5.1.7',
-  springBoot      : springBoot.class.package.implementationVersion,
-  springfoxSwagger: '2.9.2'
-]
 
-ext.libraries = [
-  junit5: [
-    "org.junit.jupiter:junit-jupiter-api:${versions.junit}",
-    "org.junit.jupiter:junit-jupiter-engine:${versions.junit}",
-    "org.junit.jupiter:junit-jupiter-params:${versions.junit}",
-    "org.junit.platform:junit-platform-commons:${versions.junitPlatform}",
-    "org.junit.platform:junit-platform-engine:${versions.junitPlatform}"
-  ]
-]
+ext {
+    reformLoggingVersion = "5.1.9"
+    log4JVersion = "2.15.0"
+}
 
 dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json'
-  implementation group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
-  implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: versions.reformLogging
+  implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+  implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: reformLoggingVersion
   implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: versions.reformLogging
   implementation group: 'com.github.hmcts', name: 'properties-volume-spring-boot-starter', version: '0.1.1'
-  implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
-  implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.14.1'
+  implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4JVersion
+  implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: log4JVersion
 
-  testImplementation libraries.junit5
+  testImplementation(platform('org.junit:junit-bom:5.8.2'))
   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', {
     exclude group: 'junit', module: 'junit'
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
