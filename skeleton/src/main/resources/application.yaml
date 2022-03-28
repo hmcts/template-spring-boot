@@ -13,6 +13,8 @@ management:
 
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
+  config:
+    import: "optional:configtree:/mnt/secrets/${{ values.product }}/"
   application:
     name: ${{ values.product }}-${{ values.component }}
 #  datasource:
