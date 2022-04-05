@@ -20,7 +20,7 @@ public class OpenAPIConfiguration {
                       .license(new License().name("MIT").url("https://opensource.org/licenses/MIT")))
             .externalDocs(new ExternalDocumentation()
                               .description("README")
-                              .url("https://github.com/hmcts/spring-boot-template"));
+                              .url("https://github.com/hmcts/template-spring-boot"));
     }
 
 }
