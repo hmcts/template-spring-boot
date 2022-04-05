@@ -13,9 +13,10 @@ plugins {
 group = 'com.github.hmcts'
 version = '0.0.1'
 
-allprojects {
-  sourceCompatibility = '11'
-  targetCompatibility = '11'
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(17)
+  }
 }
 
 sourceSets {
@@ -47,8 +48,24 @@ sourceSets {
   }
 }
 
+configurations {
+  functionalTestImplementation.extendsFrom testImplementation
+  functionalTestRuntimeOnly.extendsFrom runtimeOnly
+
+  integrationTestImplementation.extendsFrom testImplementation
+  integrationTestRuntimeOnly.extendsFrom runtimeOnly
+
+  smokeTestImplementation.extendsFrom testImplementation
+  smokeTestRuntimeOnly.extendsFrom runtimeOnly
+}
+
 tasks.withType(JavaCompile) {
   options.compilerArgs << "-Xlint:unchecked" << "-Werror"
+}
+
+// https://github.com/gradle/gradle/issues/16791
+tasks.withType(JavaExec).configureEach {
+  javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
 }
 
 tasks.withType(Test) {
@@ -86,12 +103,12 @@ task smoke(type: Test) {
 
 checkstyle {
   maxWarnings = 0
-  toolVersion = '8.29'
+  toolVersion = '9.21'
   getConfigDirectory().set(new File(rootDir, 'config/checkstyle'))
 }
 
 pmd {
-  toolVersion = "6.18.0"
+  toolVersion = "6.41.0"
   sourceSets = [sourceSets.main, sourceSets.test, sourceSets.functionalTest, sourceSets.integrationTest, sourceSets.smokeTest]
   reportsDir = file("$project.buildDir/reports/pmd")
   // https://github.com/pmd/pmd/issues/876
@@ -170,7 +187,7 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json'
-  implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+  implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.6'
   implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: reformLoggingVersion
   implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: reformLoggingVersion
   implementation group: 'com.github.hmcts', name: 'properties-volume-spring-boot-starter', version: '0.1.1'
@@ -178,17 +195,11 @@ dependencies {
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: log4JVersion
 
   testImplementation(platform('org.junit:junit-bom:5.8.2'))
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', {
     exclude group: 'junit', module: 'junit'
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
   }
-
-  integrationTestImplementation sourceSets.main.runtimeClasspath
-  integrationTestImplementation sourceSets.test.runtimeClasspath
-
-  functionalTestImplementation sourceSets.main.runtimeClasspath
-
-  smokeTestImplementation sourceSets.main.runtimeClasspath
 }
 
 mainClassName = 'uk.gov.hmcts.${{ values.product}}.${{ values.component | replace("-", "") }}.Application'
