@@ -14,13 +14,13 @@ public class OpenAPIConfiguration {
     @Bean
     public OpenAPI openAPI() {
         return new OpenAPI()
-            .info(new Info().title("${{ values.product}}.${{ values.component | replace("-", "") }}")
-                      .description("${{ values.product}}.${{ values.component | replace("-", "") }}")
+            .info(new Info().title("${{ values.product}}-${{ values.component }}")
+                      .description("${{ values.product}}-${{ values.component }}")
                       .version("v0.0.1")
                       .license(new License().name("MIT").url("https://opensource.org/licenses/MIT")))
             .externalDocs(new ExternalDocumentation()
                               .description("README")
-                              .url("https://github.com/hmcts/${{ values.product}}.${{ values.component | replace("-", "") }}"));
+                              .url("https://github.com/hmcts/${{ values.product}}-${{ values.component }}"));
     }
 
 }
