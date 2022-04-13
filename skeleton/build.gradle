@@ -103,7 +103,7 @@ task smoke(type: Test) {
 
 checkstyle {
   maxWarnings = 0
-  toolVersion = '9.21'
+  toolVersion = '9.2'
   getConfigDirectory().set(new File(rootDir, 'config/checkstyle'))
 }
 
@@ -132,6 +132,7 @@ sonarqube {
     property "sonar.projectName", "HMCTS :: ${{ values.product }}-${{ values.component }}"
     property "sonar.projectKey", "com.github.hmcts:${{ values.product }}-${{ values.component }}"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
+    property "sonar.exclusions", ["**/config/**", "**/controllers/**"]
   }
 }
 
@@ -151,16 +152,36 @@ dependencyUpdates {
 dependencyCheck {
   // Specifies if the build should be failed if a CVSS score above a specified level is identified.
   // range of 0-10 fails the build, anything greater and it doesn't fail the build
-  failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
+  failBuildOnCVSS = 0
   suppressionFile = 'config/owasp/suppressions.xml'
 
   analyzers {
     // Disable scanning of .NET related binaries
     assemblyEnabled = false
   }
+
+    skipConfigurations = [
+    "checkstyle",
+    "compileOnly",
+    "pmd",
+    "integrationTest",
+    "functionalTest",
+    "smokeTest",
+    "contractTestRuntimeClasspath",
+    "contractTestCompileClasspath"
+  ]
+}
+
+ext {
+    reformLoggingVersion = "5.1.9"
+    log4JVersion = "2.17.1"
+    springCloudVersion = "2021.0.1"
 }
 
 dependencyManagement {
+  imports {
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+  }
   dependencies {
     dependency group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.70'
     // CVE-2018-10237 - Unbounded memory allocation
@@ -174,12 +195,6 @@ repositories {
   mavenLocal()
   mavenCentral()
   maven { url 'https://jitpack.io' }
-}
-
-
-ext {
-    reformLoggingVersion = "5.1.9"
-    log4JVersion = "2.17.1"
 }
 
 dependencies {

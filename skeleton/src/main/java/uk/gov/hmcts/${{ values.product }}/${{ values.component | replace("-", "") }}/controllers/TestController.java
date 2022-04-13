@@ -12,21 +12,20 @@ import static org.springframework.http.ResponseEntity.ok;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
- * Default endpoints per application.
+ * Test endpoint.
  */
 @RestController
-public class RootController {
+public class TestController {
 
-    @Operation(summary = "Get welcome api",
-        description = "This is a welcome endpoint"
+    @Operation(summary = "Test api",
+        description = "This is a test endpoint"
     )
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "A welcome message"),
+        @ApiResponse(responseCode = "200", description = "A test message"),
         @ApiResponse(responseCode = "404", description = "No welcome could be found")
     })
-    @RequestMapping(value = "/", method = GET, produces = TEXT_PLAIN_VALUE)
-    
+    @RequestMapping(value = "/testing", method = GET, produces = TEXT_PLAIN_VALUE)
     public ResponseEntity<String> welcome() {
-        return ok("Welcome to ${{ values.product }}-${{ values.component }} application");
+        return ok("Hello and welcome to the test");
     }
 }
