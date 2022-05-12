@@ -16,6 +16,7 @@ spec:
         - component
         - owner
         - slack_contact_channel
+        - jenkins
       properties:
         product:
           title: Product
@@ -80,6 +81,7 @@ spec:
           destination: '${{ parameters.repoUrl | parseRepoUrl }}'
           slack_contact_channel: ${{ parameters.slack_contact_channel }}
           app_full_name: '${{ parameters.product }}-${{ parameters.component }}'
+          jenkins: ${{ parameters.jenkins }}
     - id: publish
       name: Publish
       action: publish:github
