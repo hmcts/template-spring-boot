@@ -21,6 +21,10 @@ spec:
           title: Product
           type: string
           description: Product this component belongs to, normally the team name, e.g. cmc
+        jenkins:
+          title: Jenkins Topic
+          type: string
+          description: GitHub Topic added in order for Jenkins to find it when it scans GitHub, e.g. jenkins-cft-j-z
         component:
           title: Component
           type: string
@@ -87,6 +91,7 @@ spec:
         repoVisibility: public
         topics:
           - ${{ parameters.product }}
+          - ${{ parameters.jenkins }}
     - id: register
       name: Register
       action: catalog:register
