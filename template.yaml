@@ -24,7 +24,7 @@ spec:
         jenkins:
           title: Jenkins Topic
           type: string
-          description: GitHub Topic added in order for Jenkins to find it when it scans GitHub, e.g. jenkins-cft-j-z
+          description: GitHub Topic added in order for Jenkins to find the repository when it scans GitHub, alphabetically grouped e.g. jenkins-cft-j-z
         component:
           title: Component
           type: string
