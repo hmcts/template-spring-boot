@@ -22,7 +22,7 @@ spec:
           title: Product
           type: string
           description: Product this component belongs to, normally the team name, e.g. cmc
-        github_topics:
+        github_topic:
           title: Github Topic
           default: jenkins-cft-j-z
           type: string
@@ -82,7 +82,7 @@ spec:
           destination: '${{ parameters.repoUrl | parseRepoUrl }}'
           slack_contact_channel: ${{ parameters.slack_contact_channel }}
           app_full_name: '${{ parameters.product }}-${{ parameters.component }}'
-          github_topics: ${{ parameters.github_topics }}
+          github_topics: ${{ parameters.github_topic }}
     - id: publish
       name: Publish
       action: publish:github
