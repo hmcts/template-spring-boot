@@ -16,16 +16,17 @@ spec:
         - component
         - owner
         - slack_contact_channel
-        - jenkins_topic
+        - github_topics
       properties:
         product:
           title: Product
           type: string
           description: Product this component belongs to, normally the team name, e.g. cmc
-        jenkins_topic:
-          title: Jenkins Topic
+        github_topics:
+          title: Github Topic
+          default: jenkins-cft-j-z
           type: string
-          description: GitHub Topic added in order for Jenkins to find the repository when it scans GitHub, alphabetically grouped e.g. jenkins-cft-j-z
+          description: GitHub Topic added in order for Jenkins to find the repository when it scans GitHub, alphabetically grouped i.e. jenkins-cft-a-c, jenkins-cft-d-i, jenkins-cft-j-z
         component:
           title: Component
           type: string
@@ -81,7 +82,7 @@ spec:
           destination: '${{ parameters.repoUrl | parseRepoUrl }}'
           slack_contact_channel: ${{ parameters.slack_contact_channel }}
           app_full_name: '${{ parameters.product }}-${{ parameters.component }}'
-          jenkins_topic: ${{ parameters.jenkins_topic }}
+          github_topics: ${{ parameters.github_topics }}
     - id: publish
       name: Publish
       action: publish:github
@@ -93,7 +94,7 @@ spec:
         repoVisibility: public
         topics:
           - ${{ parameters.product }}
-          - ${{ parameters.jenkins_topic }}
+          - ${{ parameters.github_topics }}
     - id: register
       name: Register
       action: catalog:register
