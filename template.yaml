@@ -16,7 +16,7 @@ spec:
         - component
         - owner
         - slack_contact_channel
-        - github_topics
+        - github_topic
       properties:
         product:
           title: Product
@@ -94,7 +94,7 @@ spec:
         repoVisibility: public
         topics:
           - ${{ parameters.product }}
-          - ${{ parameters.github_topics }}
+          - ${{ parameters.github_topic }}
     - id: register
       name: Register
       action: catalog:register
