@@ -22,7 +22,7 @@ spec:
           title: Product
           type: string
           description: Product this component belongs to, normally the team name, e.g. cmc
-        github_topics:
+        github_topic:
           title: Github Topic
           default: jenkins-cft-j-z
           type: string
