@@ -82,7 +82,7 @@ spec:
           destination: '${{ parameters.repoUrl | parseRepoUrl }}'
           slack_contact_channel: ${{ parameters.slack_contact_channel }}
           app_full_name: '${{ parameters.product }}-${{ parameters.component }}'
-          github_topics: ${{ parameters.github_topics }}
+          github_topics: ${{ parameters.github_topic }}
     - id: publish
       name: Publish
       action: publish:github
