@@ -210,7 +210,7 @@ dependencies {
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: log4JVersion
   implementation group: 'io.rest-assured', name: 'rest-assured'
 
-  testImplementation(platform('org.junit:junit-bom:5.8.2'))
+  testImplementation(platform('org.junit:junit-bom:5.9.0'))
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', {
     exclude group: 'junit', module: 'junit'
