@@ -208,7 +208,6 @@ dependencies {
   implementation group: 'org.yaml', name: 'snakeyaml', version: '1.33'
   implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: reformLoggingVersion
   implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: reformLoggingVersion
-  implementation group: 'com.github.hmcts', name: 'properties-volume-spring-boot-starter', version: '0.1.1'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4JVersion
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: log4JVersion
   implementation group: 'io.rest-assured', name: 'rest-assured'
