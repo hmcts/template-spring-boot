@@ -17,7 +17,6 @@
   <suppress>
     <notes><![CDATA[
    file name: snakeyaml-1.33.jar
-   SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization
    ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.yaml/snakeyaml@.*$</packageUrl>
     <cve>CVE-2022-3064</cve>
@@ -26,16 +25,7 @@
   </suppress>
   <suppress>
     <notes><![CDATA[
-   file name: spring-security-crypto-5.7.6.jar
-   Spring Security versions 5.3.x prior to 5.3.2, 5.2.x prior to 5.2.4, 5.1.x prior to 5.1.10, 5.0.x prior to 5.0.16 and 4.2.x prior to 4.2.16 use a fixed null initialization vector with CBC Mode in the implementation of the queryable text encryptor. A malicious user with access to the data that has been encrypted using such an encryptor may be able to derive the unencrypted values using a dictionary attack.
-   ]]></notes>
-    <packageUrl regex="true">^pkg:maven/org\.springframework\.security/spring\-security\-crypto@.*$</packageUrl>
-    <vulnerabilityName>CVE-2020-5408</vulnerabilityName>
-  </suppress>
-  <suppress>
-    <notes><![CDATA[
    file name: spring-web-5.3.24.jar
-   Pivotal Spring Framework through 5.3.16 suffers from a potential remote code execution (RCE) issue if used for Java deserialization of untrusted data
    ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework/spring\-web@.*$</packageUrl>
     <vulnerabilityName>CVE-2016-1000027</vulnerabilityName>
