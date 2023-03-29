@@ -1,7 +1,9 @@
 {
+  "extends": [
+    "github>hmcts/.github//renovate/global",
+    "github>hmcts/.github//renovate/automerge-all"
+  ],
   "enabledManagers": ["helm-requirements","gradle-wrapper"],
-  "automerge": true,
-  "labels": ["dependencies"],
   "helm-requirements":
   {
     "fileMatch": ["\\Chart.yaml$"],
