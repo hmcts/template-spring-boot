@@ -2,12 +2,5 @@
   "extends": [
     "github>hmcts/.github//renovate/global",
     "github>hmcts/.github//renovate/automerge-all"
-  ],
-  "helmv3": {
-    "fileMatch": ["\\Chart.yaml$"],
-    "bumpVersion": "patch",
-    "registryAliases": {
-      "hmctspublic": "https://hmctspublic.azurecr.io/helm/v1/repo/"
-    }
-  }
+  ]
 }
