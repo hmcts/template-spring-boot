@@ -3,10 +3,10 @@ appVersion: "1.0"
 description: A Helm chart for ${{ values.product }}-${{ values.component }} App
 name: ${{ values.product }}-${{ values.component }}
 home: https://github.com/hmcts/${{ values.product }}-${{ values.component }}
-version: 0.0.1
+version: 0.0.2
 maintainers:
   - name: HMCTS ${{ values.product }} team
 dependencies:
   - name: java
-    version: 4.0.13
+    version: 4.1.0
     repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
