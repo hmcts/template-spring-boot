@@ -173,7 +173,7 @@ dependencyCheck {
 ext {
     reformLoggingVersion = "6.0.1"
     log4JVersion = "2.20.0"
-    springCloudVersion = "2022.0.2"
+    springCloudVersion = "2022.0.3"
 }
 
 dependencyManagement {
