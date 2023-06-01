@@ -1,11 +1,18 @@
 {
-  "enabledManagers": ["helm-requirements","gradle-wrapper"],
+  "enabledManagers": [
+    "helm-requirements",
+    "gradle-wrapper"
+  ],
   "automerge": true,
-  "helm-requirements":
-  {
-    "fileMatch": ["\\Chart.yaml$"],
+  "helm-requirements": {
+    "fileMatch": [
+      "\\Chart.yaml$"
+    ],
     "aliases": {
       "hmctspublic": "https://hmctspublic.azurecr.io/helm/v1/repo/"
     }
-  }
+  },
+  "extends": [
+    "local>hmcts/.github:renovate-config"
+  ]
 }
