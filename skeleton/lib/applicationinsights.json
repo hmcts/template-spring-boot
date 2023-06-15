@@ -1,6 +1,23 @@
 {
-    "connectionString": "${file:/mnt/secrets/${{ values.product }}/app-insights-connection-string}",
-    "role": {
-        "name": "${{ values.app_full_name }}"
+  "connectionString": "${file:/mnt/secrets/${{ values.product }}/app-insights-connection-string}",
+  "role": {
+    "name": "${{ values.app_full_name }}"
+  },
+  "preview": {
+    "sampling": {
+      "overrides": [
+        {
+          "telemetryType": "request",
+          "attributes": [
+            {
+              "key": "http.url",
+              "value": "https?://[^/]+/health.*",
+              "matchType": "regexp"
+            }
+          ],
+          "percentage": 1
+        }
+      ]
     }
+  }
 }
