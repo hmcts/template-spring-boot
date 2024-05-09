@@ -20,12 +20,12 @@ public class RootController {
     @Operation(summary = "Get welcome api",
         description = "This is a welcome endpoint"
     )
-    @ApiResponses(value = {
+    @ApiResponses({
         @ApiResponse(responseCode = "200", description = "A welcome message"),
         @ApiResponse(responseCode = "404", description = "No welcome could be found")
     })
     @RequestMapping(value = "/", method = GET, produces = TEXT_PLAIN_VALUE)
-    
+
     public ResponseEntity<String> welcome() {
         return ok("Welcome to ${{ values.product }}-${{ values.component }} application");
     }

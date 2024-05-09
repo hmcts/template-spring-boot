@@ -33,7 +33,7 @@ class SampleSmokeTest {
             .then()
             .extract().response();
 
-        Assertions.assertEquals(200, response.statusCode());
-        Assertions.assertTrue(response.asString().startsWith("Welcome"));
-    } 
+        Assertions.assertEquals(200, response.statusCode(), "Response code was not 200.");
+        Assertions.assertTrue(response.asString().startsWith("Welcome"), "Response did not start with 'Welcome'.");
+    }
 }
