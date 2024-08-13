@@ -75,7 +75,7 @@ The template contains the following plugins:
 
     Provides monitoring of the project's dependent libraries and creating a report
     of known vulnerable components that are included in the build. To run it
-    execute `./gradlew dependencyCheck` command.
+    execute `./gradlew dependencyCheckAnalyze` command.
 
   * com.github.ben-manes.versions
 
