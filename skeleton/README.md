@@ -30,13 +30,6 @@ This plugin checks for known vulnerabilities in the project's dependencies. To r
 ```
 
 It might take a while to check against the central vulnerability database (NVD) for the first time. The report will be generated in the `build/reports` directory.
-There are two ways to speed up the scan:
-
-- Use the local NVD database. The Platform Operations team maintains a [local copy of the NVD database](https://github.com/hmcts/cnp-owaspdependencycheck-update/tree/master).
-For more info how to configure the access to the local NVD database refer to the `GradleBuilder.groovy` file in the repository [Jenkins Shared Library](https://github.com/hmcts/cnp-jenkins-library)
-- Use the NVD API Key. Request the API key obtained from the [NVD website](https://nvd.nist.gov/developers/request-an-api-key).
-Then set the property `apiKey` in the `dependencyCheck` [task](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html) in the `build.gradle` file.
-
 
 ### Running the application
 
