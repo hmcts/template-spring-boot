@@ -20,6 +20,16 @@ To build the project execute the following command:
 ```bash
   ./gradlew build
 ```
+#### Dependency Check
+
+The project is configured with the [OWASP Dependency Check gradle plugin](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html).
+This plugin checks for known vulnerabilities in the project's dependencies. To run the check, execute the following command:
+
+```bash
+  ./gradlew dependencyCheckAnalyze
+```
+
+It might take a while to check against the central vulnerability database (NVD) for the first time. The report will be generated in the `build/reports` directory.
 
 ### Running the application
 
@@ -32,23 +42,23 @@ Create the image of the application by executing the following command:
 Create docker image:
 
 ```bash
-  docker-compose build
+  docker compose build
 ```
 
 Run the distribution (created in `build/install/spring-boot-template` directory)
 by executing the following command:
 
 ```bash
-  docker-compose up
+  docker compose up
 ```
 
 This will start the API container exposing the application's port
-(set to `4550` in this template app).
+(set to `8080` in this template app).
 
 In order to test if the application is up, you can call its health endpoint:
 
 ```bash
-  curl http://localhost:4550/health
+  curl http://localhost:8080/health
 ```
 
 You should get a response similar to this:
@@ -74,7 +84,7 @@ For more information:
 Script includes bare minimum environment variables necessary to start api instance. Whenever any variable is changed or any other script regarding docker image/container build, the suggested way to ensure all is cleaned up properly is by this command:
 
 ```bash
-docker-compose rm
+docker compose rm
 ```
 
 It clears stopped containers correctly. Might consider removing clutter of images too, especially the ones fiddled with:
