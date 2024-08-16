@@ -30,6 +30,7 @@ This plugin checks for known vulnerabilities in the project's dependencies. To r
 ```
 
 It might take a while to check against the central vulnerability database (NVD) for the first time. The report will be generated in the `build/reports` directory.
+For more information on the plugin, see the HMCTS' [gradle-java-plugin](https://github.com/hmcts/rse-gradle-java-plugin)
 
 ### Running the application
 
