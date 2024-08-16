@@ -4,9 +4,9 @@
 
 ## Purpose
 
-The purpose of this template is to speed up the creation of new Spring applications within HMCTS
-and help keep the same standards across multiple teams. If you need to create a new app, you can
-simply use this one as a starting point and build on top of it.
+The purpose of this template is used by Backstage to demo Spotify's [Golden Path](https://engineering.atspotify.com/2020/08/17/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem/) 
+concept for SpringBoot based applications within HMCTS and help to keep the same standards across multiple teams. 
+If you need to create a new app, you can simply go to [Backstage portal](https://backstage.hmcts.net/).
 
 ## What's inside
 
