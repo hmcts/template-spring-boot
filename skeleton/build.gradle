@@ -170,7 +170,7 @@ dependencyCheck {
 }
 
 ext {
-    log4JVersion = "2.24.0"
+    log4JVersion = "2.24.1"
     springCloudVersion = "2023.0.3"
 }
 
