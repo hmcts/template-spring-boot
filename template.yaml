@@ -66,6 +66,9 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+            allowedOwners:
+              - hmcts
+              - hmcts-test
 
   steps:
     - id: template
@@ -87,11 +90,6 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts:
-          - github.com
-        allowedOwners:
-          - hmcts
-          - hmcts-test
         repoUrl: ${{ parameters.repoUrl }}
         access: ${{ parameters.github_admin_team }}
         requireCodeOwnerReviews: true
