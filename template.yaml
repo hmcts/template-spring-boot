@@ -91,6 +91,7 @@ spec:
       action: publish:github
       input:
         repoUrl: ${{ parameters.repoUrl }}
+        defaultBranch: 'master'
         access: ${{ parameters.github_admin_team }}
         requireCodeOwnerReviews: true
         repoVisibility: public
