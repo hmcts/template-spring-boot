@@ -86,6 +86,9 @@ spec:
           slack_contact_channel: ${{ parameters.slack_contact_channel }}
           app_full_name: '${{ parameters.product }}-${{ parameters.component }}'
           github_topics: ${{ parameters.github_topic }}
+          # labs is the only sandbox product
+          acr_registry: ${{ 'hmctssbox.azurecr.io' if parameters.product == 'labs' else 'hmctsprod.azurecr.io' }}
+
     - id: publish
       name: Publish
       action: publish:github
