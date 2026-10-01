@@ -8,5 +8,5 @@ maintainers:
   - name: HMCTS ${{ values.product }} team
 dependencies:
   - name: java
-    version: 5.2.1
+    version: 6.1.1
     repository: oci://${{ values.acr_registry }}/helm
